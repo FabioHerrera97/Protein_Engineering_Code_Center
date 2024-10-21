@@ -2,9 +2,7 @@ import unittest
 import pandas as pd
 import numpy as np
 import os
-
-
-from Scripts.data_processing import DataProcessing
+from Src.data_processing import DataProcessing
 
 class TestDataProcessing(unittest.TestCase):
     """
@@ -20,7 +18,7 @@ class TestDataProcessing(unittest.TestCase):
             'B': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
         })
         self.threshold = 0.1
-        self.output_file = 'outlier_report.txt'
+        self.output_file = '../Reports/outlier_report.txt'
 
     def test_detect_outliers(self):
         DataProcessing.create_outlier_report(self.data, self.threshold, self.output_file)
