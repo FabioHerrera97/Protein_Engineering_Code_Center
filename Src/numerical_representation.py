@@ -71,7 +71,7 @@ class EmbeddingGenerator:
         self.device = torch.device(device if torch.cuda.is_available() else 'cpu')
 
         # Load ESM-1V model
-        self.esm_model, esm_alphabet = esm.pretrained.esm1b_t33_650M_UR50S()
+        self.esm_model, self.esm_alphabet = esm.pretrained.esm1b_t33_650M_UR50S()
         self.esm_model = self.esm_model.to(self.device)
         self.batch_converter = self.esm_alphabet.get_batch_converter()
 
