@@ -16,17 +16,21 @@ class DataProcessing:
     def __init__(self, data):
         self.data = data
     
-    def create_outlier_report(data, threshold, output_file):
+    def create_outlier_report(data, file_name):
         """
         Creates an outlier report based on the data.
 
         Parameters:
         data (pandas.DataFrame): The input data.
-        threshold (float): The threshold value for identifying outliers.
-        output_file (str): The path to the output file where the report will be saved.
+        file_name (str): The desired name for the output file.
         """
-        outliers = data[(data < data.quantile(threshold)) | (data > data.quantile(1 - threshold))]
+        mean = data.mean()
+        std = data.std()
+        threshold = 3 * std
+        outliers = data[(data < mean - threshold) | (data > mean + threshold)]
         outlier_count = len(outliers)
+
+        output_file = f'{file_name}.txt'
 
         with open(output_file, 'w') as file:
             file.write(f'Outlier Report\n\n')
@@ -34,7 +38,7 @@ class DataProcessing:
             file.write(f'Outlier Details:\n')
             file.write(f'{outliers}\n')
 
-        print(f'Outlier report created successfully at {output_file}')
+        print(f'Outlier report created successfully at ../Reports/{output_file}')
 
     
     def transform_to_logarithmic(data):
