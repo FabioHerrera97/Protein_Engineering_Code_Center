@@ -53,3 +53,4 @@ class DataProcessing:
         """
         transformed_data = np.log(data)
         return transformed_data
+    
