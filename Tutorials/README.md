@@ -3,7 +3,7 @@
 To generate the sequence numerical representation run the code below: 
 
 ```
-python sequence_representation.py --data_file ../Data/raw_data/Alpha_Amylase.csv --seq_column mutated_sequence --id_column Mutation --label_column Expression --feature_types all --output_file encoded_dataset.h5 
+python sequence_representation.py --data_file ../Data/raw_data/Alpha_Amylase.csv --seq_column mutated_sequence --id_column mutant --label_column expression --feature_types all --output_file encoded_dataset.h5 
 ```
 
 These are the arguments that must be supplied to run the script:
