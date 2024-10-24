@@ -1,7 +1,8 @@
 import pandas as pd
 import argparse
-from Src.numerical_representation import SequenceRepresentation, EmbeddingGenerator
 import h5py
+from Src.numerical_representation import SequenceRepresentation, EmbeddingGenerator
+
 
 def get_sequences(data_file, seq_column, id_column, label_column):
 
@@ -57,6 +58,7 @@ def get_representations(sequences, label, ids, feature_types, output_file):
     else:
         raise ValueError('Invalid feature type. Please choose from one_hot, ifeatpro, aaindex, esmv1, prott5, or all.')
 
+
 def save_features_to_h5(ids, label, features, output_file, feature_type):
     with h5py.File(output_file, 'a') as f:
         f.create_dataset(f'{feature_type}/ids', data=ids)
@@ -65,13 +67,16 @@ def save_features_to_h5(ids, label, features, output_file, feature_type):
 
 def main():
     parser = argparse.ArgumentParser(description='Generate numerical representations for protein sequences.')
-    parser.add_argument('data_file', type=str, help='Path to the data file containing sequences.')
-    parser.add_argument('seq_column', type=str, help='Name of the column containing sequences.')
-    parser.add_argument('id_column', type=str, help='Name of the column containing sequence IDs.')
-    parser.add_argument('label_column', type=str, help='Name of the column containing labels.')
-    parser.add_argument('feature_types', type=str, nargs='+', help='Types of features to generate (one_hot, ifeatpro, aaindex, esmv1, prott5, all).')
-    parser.add_argument('output_file', type=str, help='Path to the output file to save the features.')
+    parser.add_argument('--data_file', type=str, help='Path to the data file containing sequences.')
+    parser.add_argument('--seq_column', type=str, help='Name of the column containing sequences.')
+    parser.add_argument('--id_column', type=str, help='Name of the column containing sequence IDs.')
+    parser.add_argument('--label_column', type=str, help='Name of the column containing labels.')
+    parser.add_argument('--feature_types', type=str, nargs='+', help='Types of features to generate (one_hot, ifeatpro, aaindex, esmv1, prott5, all).')
+    parser.add_argument('--output_file', type=str, help='Path to the output file to save the features.')
     args = parser.parse_args()
 
     sequences, label, ids = get_sequences(args.data_file, args.seq_column, args.id_column, args.label_column)
     get_representations(sequences, label, ids, args.feature_types, args.output_file)
+
+if __name__ == '__main__':
+    main()
