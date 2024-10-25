@@ -19,7 +19,7 @@ class SequenceRepresentation:
         """
         self.sequence = sequence
 
-    def one_hot_encoding(self):
+    def one_hot_encoding(sequence):
         """
         Performs one-hot encoding on the sequence.
 
@@ -29,22 +29,22 @@ class SequenceRepresentation:
         amino_acids = 'ACDEFGHIKLMNPQRSTVWY'
         aa_to_index = dict((c, i) for i, c in enumerate(amino_acids))
 
-        one_hot_matrix = np.zeros((len(self.sequence), len(amino_acids)))
-        for i, aa in enumerate(self.sequence):
+        one_hot_matrix = np.zeros((len(sequence), len(amino_acids)))
+        for i, aa in enumerate(sequence):
             one_hot_matrix[i, aa_to_index[aa]] = 1
         
         return one_hot_matrix
     
-    def get_ifeatpro_features(self):
+    def get_ifeatpro_features(sequence):
         """
         Retrieves the IFeatPro features for the sequence.
 
         Returns:
         list: The IFeatPro features for each amino acid in the sequence.
         """
-        return get_all_features(self)
+        return get_all_features(sequence)
     
-    def get_aaindex(self):
+    def get_aaindex(sequence):
         """
         Retrieves the AAIindex values for the sequence.
 
@@ -52,7 +52,7 @@ class SequenceRepresentation:
         list: The AAIindex values for each amino acid in the sequence.
         """
         aaindex_values = []
-        for aa in self.sequence:
+        for aa in sequence:
             aaindex_values.append(aaindex1[aa])
         return aaindex_values
 
