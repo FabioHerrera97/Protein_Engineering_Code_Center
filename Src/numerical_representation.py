@@ -1,16 +1,26 @@
 from ifeatpro.features import get_all_features
 from aaindex import aaindex1
 from transformers import T5Tokenizer, T5EncoderModel
+from sklearn.preprocessing import OneHotEncoder
 import torch
 import esm 
 import numpy as np
+
+class OneHotEncoding:
+
+    def __init__(self):
+        self.encoder = OneHotEncoder(sparse_output=False, categories=[list('ACDEFGHIKLMNPQRSTVWY')])
+    
+    def encode(self, sequence):
+        sequence = [[aa] for aa in sequence]
+        return self.encoder.fit_transform(sequence).flatten()
 
 class SequenceRepresentation:
     """
     Represents a sequence and provides methods for numerical representation.
     """
 
-    def __init__(self, sequence):
+    def __init__(self, sequence, output_dir):  
         """
         Initializes a SequenceRepresentation object.
 
@@ -18,6 +28,7 @@ class SequenceRepresentation:
         sequence (str): The sequence to be represented numerically.
         """
         self.sequence = sequence
+        self.output_dir = output_dir
 
     def one_hot_encoding(sequence):
         """
@@ -35,14 +46,14 @@ class SequenceRepresentation:
         
         return one_hot_matrix
     
-    def get_ifeatpro_features(sequence):
+    def get_ifeatpro_features(sequence, output_dir):
         """
         Retrieves the IFeatPro features for the sequence.
 
         Returns:
         list: The IFeatPro features for each amino acid in the sequence.
         """
-        return get_all_features(sequence)
+        return get_all_features(sequence, output_dir)
     
     def get_aaindex(sequence):
         """
