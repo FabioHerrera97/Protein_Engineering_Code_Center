@@ -20,7 +20,7 @@ This script produces as output a `.h5` with the representations stored at `../da
 
 If more representations need to be created apart from the 4 representations presented here, they can be added as classes in the script `sequence_representation.py`
 
-References
+## References
 
 1. Zhen et al. iFeature: a Python package and web server for features extraction and selection from protein and peptide sequences, Bioinformatics, Volume 34, Issue 14, July 2018, Pages 2499–2502, https://doi.org/10.1093/bioinformatics/bty140
 2. Meier et al. Language models enable zero-shot prediction of the effects of mutations on protein function, Advances in Neural Information Processing Systems, Volume 34, 2021, https://proceedings.neurips.cc/paper_files/paper/2021/file/f51338d736f95dd42427296047067694-Paper.pdf
