@@ -3,7 +3,7 @@
 To generate the sequence numerical representation run the code below: 
 
 ```
-python sequence_representation.py --data_file ../Data/raw_data/Alpha_Amylase.csv --seq_column mutated_sequence --id_column mutant --label_column expression --feature_types all --output_file encoded_dataset.h5 
+python sequence_representation.py --data_file ../Data/raw_data/Alpha_Amylase.csv --seq_column mutated_sequence --id_column mutant --label_column expression --feature_types all --output_dir ../Data/numeric_representations 
 ```
 
 These are the arguments that must be supplied to run the script:
@@ -17,6 +17,8 @@ These are the arguments that must be supplied to run the script:
 `--label_column`: Column containing the experimental labels
 
 `--feature_types`: Types of features to generate (one_hot, ifeatpro, aaindex, esmv1, prott5, all)
+
+`--output_dir`: Path to store the files with the numerical representations
 
 This script produces as output a `.h5` with the representations stored at `../data`. 
 
