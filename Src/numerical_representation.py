@@ -35,7 +35,7 @@ class Esm1v_Encoding:
         self.esm_model = self.esm_model.to(self.device)
         self.batch_converter = self.esm_alphabet.get_batch_converter()
 
-    def calculate_esmv1_embedding(self, sequence):
+    def calculate_esm1v_embedding(self, sequence):
         data = [(f'seq1', sequence)]
         batch_labels, batch_strs, batch_tokens = self.batch_converter(data)
         batch_tokens = batch_tokens.to(self.device)
@@ -47,7 +47,7 @@ class Esm1v_Encoding:
         return sequence_embedding
     
     def generate_esm1v_embedding(self, sequence):
-        esm1v_embedding = self.calculate_esmv1_embedding(sequence)
+        esm1v_embedding = self.calculate_esm1v_embedding(sequence)
         return esm1v_embedding
 
 

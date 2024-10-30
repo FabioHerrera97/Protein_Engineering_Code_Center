@@ -28,46 +28,41 @@ def get_representations(data_file, seq_column, feature_types, output_dir):
     data = pd.read_csv(data_file)
     sequences = data[seq_column]
 
-    if 'one_hot' or 'all' in feature_types:
-
+    if 'one_hot' in feature_types or 'all' in feature_types:
         one_hot_encoder = OneHotEncoding()
         one_hot_representations = [one_hot_encoder.encode(sequence) for sequence in sequences]
         df_one_hot = pd.DataFrame(one_hot_representations)
         df_one_hot.to_csv(f'{output_dir}/one_hot.csv', index=False)
         print('One hot encoding done!')
 
-
-
-    if 'ifeatpro' or 'all' in feature_types:
+    if 'ifeatpro' in feature_types or 'all' in feature_types:
         ifeatpro_encoder = IfeatproEncoding(output_dir)
         ifeatpro_encoder.get_fasta_file(sequences)
-        ifeatpro_features = [ifeatpro_encoder.get_ifeatpro_features(sequence) for sequence in sequences]
-        ifeatpro_features_df = pd.DataFrame(ifeatpro_features)
-        ifeatpro_features_df.to_csv(f'{output_dir}/ifeatpro.csv', index=False)
+        ifeatpro_encoder.get_ifeatpro_features()
         print('Ifeatpro encoding done!')
 
-    if 'esmv1' or 'all' in feature_types:
+    if 'esm1v' in feature_types or 'all' in feature_types:
         esm1v_encoder = Esm1v_Encoding()
-        esmv1_features = [esm1v_encoder.get_esmv1_embedding(sequence) for sequence in sequences]
+        esmv1_features = [esm1v_encoder.generate_esm1v_embedding(sequence) for sequence in sequences]
         esmv1_features_df = pd.DataFrame(esmv1_features)
         esmv1_features_df.to_csv(f'{output_dir}/esmv1.csv', index=False)
         print('Esmv1 encoding done!')
 
-    if 'prott5' or 'all' in feature_types:
+    if 'prott5' in feature_types or 'all' in feature_types:
         prott5_encoder = Prott5Encoding()
-        prot5_features = [prott5_encoder.get_prott5_embedding(sequence) for sequence in sequences]
+        prot5_features = [prott5_encoder.generate_prott5_embedding(sequence) for sequence in sequences]
         prot5_features_df = pd.DataFrame(prot5_features)
         prot5_features_df.to_csv(f'{output_dir}/prott5.csv', index=False)
         print('Prott5 encoding done!')
 
-    else:
-        raise ValueError('Invalid feature type. Please choose from one_hot, ifeatpro, aaindex, esmv1, prott5, or all.')
-    
+    if not any(feature_type in ['one_hot', 'ifeatpro', 'esm1v', 'prott5', 'all'] for feature_type in feature_types):
+        raise ValueError('Invalid feature type. Please choose from one_hot, ifeatpro, esm1v, prott5, or all.')
+
 def main():
     parser = argparse.ArgumentParser(description='Generate numerical representations for protein sequences.')
     parser.add_argument('--data_file', type=str, help='Path to the data file containing sequences.')
     parser.add_argument('--seq_column', type=str, help='Name of the column containing sequences.')
-    parser.add_argument('--feature_types', type=str, nargs='+', help='Types of features to generate (one_hot, ifeatpro, aaindex, esmv1, prott5, all).')
+    parser.add_argument('--feature_types', type=str, nargs='+', help='Types of features to generate (one_hot, ifeatpro, esm1v, prott5, all).')
     parser.add_argument('--output_dir', type=str, help='Path to the output file to save the features.')
     args = parser.parse_args()
 
