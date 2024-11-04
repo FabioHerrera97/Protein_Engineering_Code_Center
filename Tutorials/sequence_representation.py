@@ -15,7 +15,7 @@ def get_representations(data_file, seq_column, feature_types, output_dir):
     Args:
         sequences (list): List of input sequences.
         feature_types (list): List of feature types to generate representations for.
-            Valid options: 'one_hot', 'ifeatpro', 'aaindex', 'esmv1', 'prott5', 'all'.
+            Valid options: 'one_hot', 'ifeatpro', 'esmv1', 'prott5', 'all'.
         output_file (str): Output file path to save the generated representations.
 
     Raises:
