@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from Src.numerical_representation import EmbeddingGenerator
+from src.numerical_representation import EmbeddingGenerator
 
 class TestEmbeddingGenerator(unittest.TestCase):
     """

@@ -4,7 +4,7 @@ import argparse
 import sys 
 import h5py
 
-sys.path.insert(1, '/raid/data/fherrera/Protein_Engineering_Code_Center/Src/')
+sys.path.insert(1, '/raid/data/fherrera/Protein_Engineering_Code_Center/src/')
 from numerical_representation import OneHotEncoding, IfeatproEncoding, Esm1v_Encoding, Prott5Encoding
 
 

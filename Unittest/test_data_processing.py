@@ -2,7 +2,7 @@ import unittest
 import pandas as pd
 import numpy as np
 import os
-from Src.data_processing import DataProcessing
+from src.data_processing import DataProcessing
 
 class TestDataProcessing(unittest.TestCase):
     """
