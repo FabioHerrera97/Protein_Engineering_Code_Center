@@ -1,0 +1,14 @@
+=== Z-Score Method ===
+Outliers are defined as values with a Z-score > 3 or < -3.
+Total Outliers: 1
+Variant_6: 500.0
+
+=== IQR Method ===
+Outliers are defined as values outside 1.5 * IQR from Q1 and Q3.
+Q1 = 11.049999999999997, Q3 = 14.083333333333334, IQR = 3.0333333333333368
+Lower Bound = 6.499999999999992, Upper Bound = 18.63333333333334
+Total Outliers: 4
+Variant_6: 500.0
+Variant_15: 22.0
+Variant_19: 4.0
+Variant_20: 0.02
