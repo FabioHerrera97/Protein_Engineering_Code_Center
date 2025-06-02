@@ -62,6 +62,10 @@ The official Scikit-learn User Guide provides comprehensive documentation for Py
 
 TorchProtein is an open source library for protein representation learning. It encapsulates common protein machine learning demands in human-friendly data structures, models and tasks, to ease the process of building applications on proteins.
 
+6. [DeepMind Nuclease Design](https://github.com/google-deepmind/nuclease_design)
+
+TorchProtein is an open source library for protein representation learning. It encapsulates common protein machine learning demands in human-friendly data structures, models and tasks, to ease the process of building applications on proteins.
+
 
 
 
