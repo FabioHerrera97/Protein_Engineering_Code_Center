@@ -56,7 +56,7 @@ This guide is designed for practitioners with foundational machine learning expe
 
 4. [Scikit-Learn](https://scikit-learn.org/stable/user_guide.html)
 
-The official Scikit-learn User Guide provides comprehensive documentation for Python's premier machine learning library. It contains progressive tutorials from basic to advanced ML concepts and clear explanations of algorithms with mathematical foundations as well as code examples for all major ML tasks (classification, regression, clustering).
+The official Scikit-learn User Guide provides comprehensive documentation for Python's premier machine learning library. It contains progressive tutorials from basic to advanced ML concepts and clear explanations of algorithms with mathematical foundations as well as code examples for all major ML tasks (classification, regression, clustering). This library oalso offers a section of [Common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls.html)
 
 #### Machine Learning for Protein Engineering
 
