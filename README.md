@@ -48,7 +48,7 @@ PEP 8 is the definitive style guide for writing clean, readable, and consistent 
 
 This guide explores essential practices and tools to improve readability, maintainability, and robustness of Python code. Key topics include Code Quality Fundamental Definitions ; Static Analysis Tools such as Linters, formatters, and type checkers; and testing and debugging tools such as Unit testing (pytest), debuggers, and profiling tools.
 
-#### Machine Learning
+#### General Machine Learning 
 
 3. [Google Best Practices for ML Engineering](https://developers.google.com/machine-learning/guides/rules-of-ml)
 
@@ -58,6 +58,8 @@ This guide is designed for practitioners with foundational machine learning expe
 
 The official Scikit-learn User Guide provides comprehensive documentation for Python's premier machine learning library. It contains progressive tutorials from basic to advanced ML concepts and clear explanations of algorithms with mathematical foundations as well as code examples for all major ML tasks (classification, regression, clustering).
 
+#### Machine Learning for Protein Engineering
+
 5. [TorchProtein](https://torchprotein.ai/)
 
 TorchProtein is an open source library for protein representation learning. It encapsulates common protein machine learning demands in human-friendly data structures, models and tasks, to ease the process of building applications on proteins.
@@ -65,6 +67,22 @@ TorchProtein is an open source library for protein representation learning. It e
 6. [DeepMind Nuclease Design](https://github.com/google-deepmind/nuclease_design)
 
 TorchProtein is an open source library for protein representation learning. It encapsulates common protein machine learning demands in human-friendly data structures, models and tasks, to ease the process of building applications on proteins.
+
+7. [Facebook Research - ESM](https://github.com/facebookresearch/esm)
+
+This repository contains code and pre-trained weights for Transformer protein language models from the Meta Fundamental AI Research Protein Team (FAIR), including our state-of-the-art ESM-2 and ESMFold, as well as MSA Transformer, ESM-1v for predicting variant effects and ESM-IF1 for inverse folding. 
+
+8. [EvolutionaryScale - ESM3](https://github.com/evolutionaryscale/esm)
+
+This repository contains flagship protein models for EvolutionaryScale, as well as access to the API. ESM3 is a multimodal protein generative model, and can be used for generation and prediction tasks. ESM C is a protein representation learning model, and can be used to embed protein sequences.
+
+9. [ProtTrans](https://github.com/Rostlab/ProtTrans)
+
+This repository will be updated regulary with new pre-trained models for proteins as part of supporting bioinformatics community in general. 
+
+10. [Ankh](https://github.com/agemagician/Ankh)
+
+Ankh is the first general-purpose protein language model trained on Google's TPU-V4 surpassing the state-of-the-art performance with dramatically less parameters, promoting accessibility to research innovation via attainable resources.
 
 
 
